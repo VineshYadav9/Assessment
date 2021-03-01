@@ -1,0 +1,67 @@
+<div class="pre-loader" *ngIf="apiResponsesLoderFlag.length>0">
+    <img src="{{AJAX_LOADER_PIC_WITH_PATH}}" class="ajax-loader" />
+</div>
+<div class="pre-loader" *ngIf="apiResponsesLoderFlag.length>0">
+    <img src="{{AJAX_LOADER_PIC_WITH_PATH}}" class="ajax-loader" />
+</div>
+<div id="content" class="capitalize">
+     <div class="row">
+	    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-6">
+	      <h3 class="page-title txt-color-blueDark">
+	        <i class="glyphicon glyphicon-eye-open  txt-color-green cursor-pointer fa-fw"></i>
+	        <span class="capitalize"> Employee</span>
+	      </h3>
+	    </div>
+	</div>
+    <div class="row">
+        <div class="col-sm-12">
+            <fieldset>
+                <div class="widget-body panel panel-default">
+	                <legend class="margin-bottom-10 margin-left-right-8px capitalize" >&nbsp;
+			            <div class="col-sm-2 col-xs-5 pull-right text-right">
+			              <a routerLink="{{employeeListLink}}" class="btn-sm btn-info">
+			                <i class="fa fa-backward"></i> Back to listing
+			              </a>
+			            </div>
+			         </legend>
+                    <div style=" margin:50px;">
+
+                        <div *ngIf="apiResponseMessage.length>0" class="alert alert-success alert-custom">
+                            <button class="close" data-dismiss="alert"> × </button>
+                            <div [hidden]="apiResponseMessage.length ==0">{{apiResponseMessage}}</div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>ID:</label>
+                                {{employeeForm.id}}
+                            </div>
+                            <div class="col-sm-3">
+                                <label>First Name:</label>
+                                {{employeeForm.firstName}}
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Last Name:</label>
+                                {{employeeForm.lastName}}
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Age:</label>
+                                {{employeeForm.age}}
+                            </div>
+                        </div>
+                        <div class="row">                           
+                            <div class="col-sm-3">
+                                <label>Email:</label>
+                                {{employeeForm.emailId}}
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Address:</label>
+                                {{employeeForm.address}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="pre-loader" *ngIf="apiResponsesLoderFlag.length>0">
+        <img src="{{AJAX_LOADER_PIC_WITH_PATH}}" class="ajax-loader" />
+    </div>
+    <div id="content" class="capitalize">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-12">
+                <h1 class="page-title txt-color-blueDark">
+                    <i class="fa fa-list fa-fw"></i> Employee
+                    <span class="capitalize">&gt; {{pageName}}</span>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="widget-body panel panel-default padding-10">
+                    <fieldset>
+                        <legend class="margin-bottom-10 capitalize"> Listing
+                            <div class="col-sm-2 col-xs-5 pull-right text-right">
+                                <a routerLink="{{employeeAddLink}}" class="btn-sm btn-info">
+                                    <i class="fa fa-plus"></i> New Employee
+                                </a>
+                            </div>
+                        </legend>
+                            <div *ngIf="successMessage.length>0" class="alert alert-success alert-custom">
+                                <button class="close" data-dismiss="alert">	× </button>
+                                <div [hidden]="successMessage.length ==0">{{successMessage}}</div>
+                            </div>
+                            <div *ngIf="errorMessage.length>0" class="alert alert-danger alert-block">
+                                <button class="close" data-dismiss="alert" (click)="resetErrors()">	× </button>
+                                <div [hidden]="errorMessage.length ==0">{{errorMessage}}</div>
+                            </div>
+                            <div *ngIf="!tableHideFlag" class="row">
+                                <div class="col-sm-12">
+                                    <sa-datatable [tableId]="'employee-list'" tableClass="table table-striped table-bordered" width="100%" [options]="options" [detailsFormat]="detailsFormat()">
+                                        <thead>
+                                            <tr>
+                                                <th>Action</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email Id</th>
+                                                <th>Age</th>
+                                                <th>Gender</th>
+                                                <th>Address</th>
+                                            </tr>
+                                        </thead>
+                                    </sa-datatable>
+                                    <pagination (onClickPageNumber)="bindData($event)" [resetPageNumberRecords]="resetPageNumberRecords" [totalRecords] ="getTotalRecords()" [pageSize]="pageSize"></pagination>
+                                                    
+                                </div>
+                            </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
